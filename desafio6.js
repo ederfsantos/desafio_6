@@ -45,10 +45,7 @@ do {
 
         removerItem(item);
     }
-    // exibirListaDeCompras();
-    //  resposta = prompt("Você deseja adicionar uma comida na sua lista de compras? Sim ou Nao");
-    // resposta = resposta.toUpperCase();//deixando tudo maiusculo para comparação, caso usuario digite minusculo
-
+    
 } while (resposta == "SIM");
 
 /*chamando a função para exibir as listas */
