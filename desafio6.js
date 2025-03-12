@@ -14,8 +14,8 @@ do {
 
     if (resposta == "SIM") {
         let comida = prompt("Qual comida você deseja inserir?");
-        let categoria = parseInt(prompt("Em qual categoria essa comida se encaixa?\nEscolha uma opção:\n[1] Frutas, [2] Laticínios," +
-            " [3] Congelados, [4] Doces, [5] Bebidas"));
+        let categoria = parseInt(prompt("Em qual categoria essa comida se encaixa?\nEscolha uma opção:\n1 - Frutas\n2 - Laticínios\n" +
+            "3 - Congelados\n4 - Doces\n5 - Bebidas"));
 
         if (categoria == 1) {
             listaDeFrutas.push(comida);
@@ -37,15 +37,18 @@ do {
 
         }
     }
-    resposta2 = prompt("Você deseja remover algum item da lista? Sim ou Nao");
-    resposta2 = resposta2.toUpperCase();
-    if (resposta2 == "SIM") {
-        let item = prompt("Sua Lista de compras!\nDoces: " + listaDeDoces + "\nBebidas: " + listaDeBebidas + "\n"
-            + "Congelados: " + listaDeCongelados + "\nFrutas: " + listaDeFrutas + "\nLaticínios: " + listaDeLaticinios + "\n Informe o item a ser removido");
+    do {
+        resposta2 = prompt("Você deseja remover algum item da lista? Sim ou Nao");
+        resposta2 = resposta2.toUpperCase();
+        if (resposta2 == "SIM") {
+            let item = prompt("Sua Lista de compras!\nDoces: " + listaDeDoces + "\nBebidas: " + listaDeBebidas + "\n"
+                + "Congelados: " + listaDeCongelados + "\nFrutas: " + listaDeFrutas + "\nLaticínios: " + listaDeLaticinios + "\n Informe o item a ser removido");
 
-        removerItem(item);
-    }
-    
+            removerItem(item);
+            exibirListaDeCompras();
+        }
+    } while (resposta2 == "SIM");
+
 } while (resposta == "SIM");
 
 /*chamando a função para exibir as listas */
@@ -60,38 +63,38 @@ function exibirListaDeCompras() {
 function removerItem(item) {
     let posicao;
 
-    
-        if (listaDeBebidas.includes(item)) {
-            posicao = listaDeBebidas.indexOf(item);
-            listaDeBebidas.splice(posicao, 1);
-            alert(`Item ${item} removido da lista!`);
-               
-        } else if (listaDeCongelados.includes(item)) {
-            posicao = listaDeCongelados.indexOf(item);
-            listaDeCongelados.splice(posicao, 1);
-            alert(`Item ${item} removido da lista!`);
 
-        } else if (listaDeDoces.includes(item)) {
-            posicao = listaDeDoces.indexOf(item);
-            listaDeDoces.splice(posicao, 1);
-            alert(`Item ${item} removido da lista!`);
+    if (listaDeBebidas.includes(item)) {
+        posicao = listaDeBebidas.indexOf(item);
+        listaDeBebidas.splice(posicao, 1);
+        alert(`Item ${item} removido da lista!`);
+
+    } else if (listaDeCongelados.includes(item)) {
+        posicao = listaDeCongelados.indexOf(item);
+        listaDeCongelados.splice(posicao, 1);
+        alert(`Item ${item} removido da lista!`);
+
+    } else if (listaDeDoces.includes(item)) {
+        posicao = listaDeDoces.indexOf(item);
+        listaDeDoces.splice(posicao, 1);
+        alert(`Item ${item} removido da lista!`);
 
 
-        } else if (listaDeFrutas.includes(item)) {
-            posicao = listaDeFrutas.indexOf(item);
-            listaDeFrutas.splice(posicao, 1);
-            alert(`Item ${item} removido da lista!`);
+    } else if (listaDeFrutas.includes(item)) {
+        posicao = listaDeFrutas.indexOf(item);
+        listaDeFrutas.splice(posicao, 1);
+        alert(`Item ${item} removido da lista!`);
 
-        } else if (listaDeLaticinios.includes(item)) {
-            posicao = listaDeLaticinios.indexOf(item);
-            listaDeLaticinios.splice(posicao, 1);
-            alert(`Item ${item} removido da lista!`);
+    } else if (listaDeLaticinios.includes(item)) {
+        posicao = listaDeLaticinios.indexOf(item);
+        listaDeLaticinios.splice(posicao, 1);
+        alert(`Item ${item} removido da lista!`);
 
-        } else {
-            alert("Não  foi possivel encontrar o item dentro da lista!\nCausas: a lista pode estar vazia ou o elemento não estar incluso na mesma!");
-        }
-
+    } else {
+        alert("Não  foi possivel encontrar o item dentro da lista!\nCausas: a lista pode estar vazia ou o elemento não estar incluso na mesma!");
     }
+
+}
 
 /*
     function verificarListaVazia(lista) {
